@@ -11,22 +11,22 @@
 
 float VectorMagnitude(const Vector2& vector2)
 {
-	return std::sqrt(vector2.x * vector2.x + vector2.y * vector2.y);
+	return std::sqrt(vector2.x.x * vector2.x.x + vector2.y.x * vector2.y.x);
 }
 
 float DotProduct(const Vector2& a, const Vector2& b)
 {
-	return a.x * b.x + a.y * b.y;
+	return a.x.x * b.x.x + a.y.x * b.y.x;
 }
 
 Vector2	NormalizeVector(const Vector2& vector2)
 {
-	float length = std::sqrt(vector2.x * vector2.x + vector2.y * vector2.y);
+	float length = std::sqrt(vector2.x.x * vector2.x.x + vector2.y.x * vector2.y.x);
 
 	if (length == 0.0f)
 	{
 		// Return a negative vector to avoid division be zero error...
-		return { -1.0f, -1.0f };
+		return { };
 	}
 
 	return { vector2.x / length, vector2.y / length };
@@ -34,11 +34,8 @@ Vector2	NormalizeVector(const Vector2& vector2)
 
 bool VectorsAreEquivalent(const Vector2& a, const Vector2& b)
 {
-	// A high-precision comparision. Adjust to your liking!!!
-	constexpr float	EPSILON	= 1.0e-8f;
-
-	bool x_test_passed = std::abs(a.x - b.x) <= EPSILON;
-	bool y_test_passed = std::abs(a.y - b.y) <= EPSILON;
+	bool x_test_passed = std::abs(a.x.x - b.x.x) <= EPSILON;
+	bool y_test_passed = std::abs(a.y.x - b.y.x) <= EPSILON;
 
 	return x_test_passed && y_test_passed;
 }
