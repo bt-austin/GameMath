@@ -1,0 +1,15 @@
+#
+# Visual Studio Excludes
+#
+
+/.vs
+GameMath.vcxproj
+GameMath.vcxproj.filters
+GameMath.vcxproj.user
+
+#
+# Project Excludes
+#
+
+/Binaries
+/Intermediate
